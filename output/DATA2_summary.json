@@ -1,0 +1,35 @@
+{
+  "dataset_name": "DATA2",
+  "top_5_days": [
+    {
+      "date": "2024-11-15",
+      "revenue": 58547.68
+    },
+    {
+      "date": "2024-07-18",
+      "revenue": 56485.24
+    },
+    {
+      "date": "2024-12-10",
+      "revenue": 51145.23
+    },
+    {
+      "date": "2024-09-12",
+      "revenue": 46868.22
+    },
+    {
+      "date": "2025-12-03",
+      "revenue": 42587.63
+    }
+  ],
+  "unique_users": 2663,
+  "unique_author_sets": 293,
+  "most_popular_authors": [
+    "Hershel Treutel",
+    "Miss Modesto Denesik",
+    "Sen. Trula Bosco"
+  ],
+  "best_buyer_ids": [
+    54419
+  ]
+}

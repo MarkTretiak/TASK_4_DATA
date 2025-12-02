@@ -1,0 +1,33 @@
+{
+  "dataset_name": "DATA1",
+  "top_5_days": [
+    {
+      "date": "2024-12-05",
+      "revenue": 90185.72
+    },
+    {
+      "date": "2024-11-03",
+      "revenue": 82995.45
+    },
+    {
+      "date": "2025-01-25",
+      "revenue": 75357.91
+    },
+    {
+      "date": "2025-03-14",
+      "revenue": 62252.97
+    },
+    {
+      "date": "2025-03-29",
+      "revenue": 60364.22
+    }
+  ],
+  "unique_users": 3115,
+  "unique_author_sets": 325,
+  "most_popular_authors": [
+    "Arlinda Huel"
+  ],
+  "best_buyer_ids": [
+    44650
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "dataset_name": "DATA3",
+  "top_5_days": [
+    {
+      "date": "2025-01-29",
+      "revenue": 72367.74
+    },
+    {
+      "date": "2025-12-02",
+      "revenue": 70142.6
+    },
+    {
+      "date": "2024-12-26",
+      "revenue": 66320.65
+    },
+    {
+      "date": "2024-12-17",
+      "revenue": 59999.2
+    },
+    {
+      "date": "2024-07-25",
+      "revenue": 55953.729999999996
+    }
+  ],
+  "unique_users": 3290,
+  "unique_author_sets": 268,
+  "most_popular_authors": [
+    "Coy Streich",
+    "Keeley Hand",
+    "Lela Emard"
+  ],
+  "best_buyer_ids": [
+    50855
+  ]
+}

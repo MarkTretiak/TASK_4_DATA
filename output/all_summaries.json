@@ -1,0 +1,105 @@
+[
+  {
+    "dataset_name": "DATA1",
+    "top_5_days": [
+      {
+        "date": "2024-12-05",
+        "revenue": 90185.72
+      },
+      {
+        "date": "2024-11-03",
+        "revenue": 82995.45
+      },
+      {
+        "date": "2025-01-25",
+        "revenue": 75357.91
+      },
+      {
+        "date": "2025-03-14",
+        "revenue": 62252.97
+      },
+      {
+        "date": "2025-03-29",
+        "revenue": 60364.22
+      }
+    ],
+    "unique_users": 3115,
+    "unique_author_sets": 325,
+    "most_popular_authors": [
+      "Arlinda Huel"
+    ],
+    "best_buyer_ids": [
+      44650
+    ]
+  },
+  {
+    "dataset_name": "DATA2",
+    "top_5_days": [
+      {
+        "date": "2024-11-15",
+        "revenue": 58547.68
+      },
+      {
+        "date": "2024-07-18",
+        "revenue": 56485.24
+      },
+      {
+        "date": "2024-12-10",
+        "revenue": 51145.23
+      },
+      {
+        "date": "2024-09-12",
+        "revenue": 46868.22
+      },
+      {
+        "date": "2025-12-03",
+        "revenue": 42587.63
+      }
+    ],
+    "unique_users": 2663,
+    "unique_author_sets": 293,
+    "most_popular_authors": [
+      "Hershel Treutel",
+      "Miss Modesto Denesik",
+      "Sen. Trula Bosco"
+    ],
+    "best_buyer_ids": [
+      54419
+    ]
+  },
+  {
+    "dataset_name": "DATA3",
+    "top_5_days": [
+      {
+        "date": "2025-01-29",
+        "revenue": 72367.74
+      },
+      {
+        "date": "2025-12-02",
+        "revenue": 70142.6
+      },
+      {
+        "date": "2024-12-26",
+        "revenue": 66320.65
+      },
+      {
+        "date": "2024-12-17",
+        "revenue": 59999.2
+      },
+      {
+        "date": "2024-07-25",
+        "revenue": 55953.729999999996
+      }
+    ],
+    "unique_users": 3290,
+    "unique_author_sets": 268,
+    "most_popular_authors": [
+      "Coy Streich",
+      "Keeley Hand",
+      "Lela Emard"
+    ],
+    "best_buyer_ids": [
+      50855
+    ]
+  }
+]
