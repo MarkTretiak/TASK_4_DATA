@@ -14,6 +14,9 @@ The project:
   - the most popular author set by sold copies,
   - the best customer by total spending (with all their alias `user_id`s).
 - Generates a simple **dashboard** with three tabs (one per dataset).
+- 
+#Link to see the results:
+https://marktretiak.github.io/TASK_4_DATA/output/dashboard.html
 
 ---
 
@@ -33,6 +36,3 @@ output/
   ├─ DATA2_daily_revenue.png
   ├─ DATA3_daily_revenue.png
   └─ dashboard.html          # Static HTML dashboard
-
-#Link to see the results:
-https://marktretiak.github.io/TASK_4_DATA/output/dashboard.html
