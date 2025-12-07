@@ -25,9 +25,27 @@ def normalize_timestamp(df: pd.DataFrame, col: str = "timestamp") -> pd.DataFram
         raise ValueError(f"Expected column '{col}' in orders.parquet")
 
     df = df.copy()
-    df[col] = pd.to_datetime(df[col], errors="coerce", utc=True)
-    df[col] = df[col].dt.tz_convert(None)
+
+    ts = pd.to_datetime(df[col], errors="coerce", dayfirst=True, utc=True)
+
+    ts = ts.dt.tz_convert(None)
+
+    today = pd.Timestamp("today").normalize()
+
+    mask_valid = ts.notna() & (ts.dt.normalize() < today)
+
+    dropped = (~mask_valid).sum()
+    if dropped:
+        print(
+            f"Dropping {dropped} orders with invalid / today / future timestamps "
+            f"(min={ts[mask_valid].min()}, max={ts[mask_valid].max()})"
+        )
+
+    df = df.loc[mask_valid].copy()
+    df[col] = ts[mask_valid]
+
     return df
+
 
 def normalize_authors_field(value):
     if isinstance(value, list):
@@ -52,10 +70,6 @@ def author_set_key(authors: List[str]) -> str:
     return "|".join(a.lower().strip() for a in authors)
 
 def find_file(base: Path, main_name: str, dataset_suffix: str, extra_names=None) -> Path:
-    """
-    Try several filenames and return the first that exists.
-    For example: orders.parquet, orders1.parquet, etc.
-    """
     candidates = [main_name]
     if dataset_suffix:
         stem, ext = main_name.split(".", 1)
@@ -127,10 +141,6 @@ def normalize_user_columns(users: pd.DataFrame) -> pd.DataFrame:
 
 
 def reconcile_users(users: pd.DataFrame) -> Dict[int, Set[int]]:
-    """
-    Return mapping cluster_root -> set of user_id values.
-    Assumes only one of {name, email, phone, address} can differ.
-    """
     users = normalize_user_columns(users)
 
     needed = ["user_id", "name", "email", "phone", "address"]

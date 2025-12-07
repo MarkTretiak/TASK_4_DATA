@@ -3,16 +3,12 @@
     "dataset_name": "DATA1",
     "top_5_days": [
       {
-        "date": "2024-12-05",
-        "revenue": 90185.72
+        "date": "2025-01-25",
+        "revenue": 75357.91
       },
       {
         "date": "2024-11-03",
-        "revenue": 82995.45
-      },
-      {
-        "date": "2025-01-25",
-        "revenue": 75357.91
+        "revenue": 70217.7
       },
       {
         "date": "2025-03-14",
@@ -21,6 +17,10 @@
       {
         "date": "2025-03-29",
         "revenue": 60364.22
+      },
+      {
+        "date": "2024-11-21",
+        "revenue": 54749.95
       }
     ],
     "unique_users": 3115,
@@ -29,7 +29,8 @@
       "Arlinda Huel"
     ],
     "best_buyer_ids": [
-      44650
+      44808,
+      46083
     ]
   },
   {
@@ -44,16 +45,16 @@
         "revenue": 56485.24
       },
       {
-        "date": "2024-12-10",
-        "revenue": 51145.23
+        "date": "2024-08-24",
+        "revenue": 40060.479999999996
       },
       {
-        "date": "2024-09-12",
-        "revenue": 46868.22
+        "date": "2024-11-29",
+        "revenue": 37877.96
       },
       {
-        "date": "2025-12-03",
-        "revenue": 42587.63
+        "date": "2024-04-24",
+        "revenue": 36745.73
       }
     ],
     "unique_users": 2663,
@@ -64,7 +65,7 @@
       "Sen. Trula Bosco"
     ],
     "best_buyer_ids": [
-      54419
+      54745
     ]
   },
   {
@@ -73,10 +74,6 @@
       {
         "date": "2025-01-29",
         "revenue": 72367.74
-      },
-      {
-        "date": "2025-12-02",
-        "revenue": 70142.6
       },
       {
         "date": "2024-12-26",
@@ -89,14 +86,17 @@
       {
         "date": "2024-07-25",
         "revenue": 55953.729999999996
+      },
+      {
+        "date": "2025-07-09",
+        "revenue": 51977.75
       }
     ],
     "unique_users": 3290,
     "unique_author_sets": 268,
     "most_popular_authors": [
-      "Coy Streich",
-      "Keeley Hand",
-      "Lela Emard"
+      "Clyde Jacobson",
+      "Mohamed Dach"
     ],
     "best_buyer_ids": [
       50855

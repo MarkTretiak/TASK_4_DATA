@@ -1,135 +1,217 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8" />
   <title>Book Store Analytics Dashboard</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
-    body { padding: 20px; }
-    .metric-card { min-height: 90px; }
-    .metric-label { font-size: 0.9rem; color: #666; }
-    .metric-value { font-size: 1.4rem; font-weight: 600; }
-    img.revenue-chart { max-width: 100%; border: 1px solid #ccc; border-radius: 8px; }
-    pre.best-buyer { max-height: 200px; overflow-y: auto; background:#f8f9fa; padding:8px; }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f5f7fb;
+      color: #222;
+    }
+    header {
+      background: #1f2937;
+      color: white;
+      padding: 16px 32px;
+      font-size: 24px;
+      font-weight: 600;
+    }
+    .tabbar {
+      display: flex;
+      gap: 8px;
+      padding: 12px 24px;
+      background: #e5e7eb;
+      border-bottom: 1px solid #d1d5db;
+    }
+    .tablink {
+      border: none;
+      background: #d1d5db;
+      padding: 8px 16px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    .tablink.active {
+      background: #111827;
+      color: white;
+    }
+    .tabcontent {
+      display: none;
+      padding: 24px 32px 40px 32px;
+    }
+    .tabcontent.shown {
+      display: block;
+    }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .card {
+      background: white;
+      border-radius: 16px;
+      padding: 16px 20px;
+      box-shadow: 0 8px 18px rgba(15, 23, 42, 0.08);
+    }
+    .card .label {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #6b7280;
+      margin-bottom: 4px;
+    }
+    .card .value {
+      font-size: 20px;
+      font-weight: 600;
+    }
+    table.top5 {
+      border-collapse: collapse;
+      width: 100%;
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 24px;
+      box-shadow: 0 6px 14px rgba(15, 23, 42, 0.06);
+    }
+    table.top5 th, table.top5 td {
+      padding: 10px 14px;
+      border-bottom: 1px solid #e5e7eb;
+      text-align: left;
+      font-size: 14px;
+    }
+    table.top5 thead {
+      background: #f3f4f6;
+      font-weight: 600;
+    }
+    img.chart {
+      width: 100%;
+      max-height: 420px;
+      object-fit: contain;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 6px 14px rgba(15, 23, 42, 0.06);
+    }
   </style>
 </head>
 <body>
-<div class="container">
-  <h1 class="mb-4">Book Store Analytics Dashboard</h1>
+  <header>Book Store Analytics Dashboard</header>
+  <div class="tabbar">
+    <button class="tablink active" onclick="openTab(event, 'DATA1')">DATA1</button><button class="tablink " onclick="openTab(event, 'DATA2')">DATA2</button><button class="tablink " onclick="openTab(event, 'DATA3')">DATA3</button>
+  </div>
+  
+<div id="DATA1" class="tabcontent shown">
+  <div class="cards">
+    <div class="card">
+      <div class="label">Unique users</div>
+      <div class="value">3066</div>
+    </div>
+    <div class="card">
+      <div class="label">Unique author sets</div>
+      <div class="value">325</div>
+    </div>
+    <div class="card">
+      <div class="label">Most popular author(s)</div>
+      <div class="value">Arlinda Huel</div>
+    </div>
+    <div class="card">
+      <div class="label">Best buyer (all alias user_ids)</div>
+      <div class="value">[44338, 44368, 44451, 44530, 44576, 44667, 44684, 44719, 44770, 44892, 45114, 45413, 45551, 45597, 45616, 45758, 45829, 45936, 45949, 45981, 46020, 46032, 46071, 46145, 46235, 46243, 46269, 46285, 46401, 46432, 46578, 46582, 46653, 46706, 46788, 46792, 46823, 46943, 46946, 47021, 47104, 47276, 47415, 47450, 47488, 47512, 47555, 47567, 47576, 47607]</div>
+    </div>
+  </div>
 
-  <ul class="nav nav-tabs" id="datasetTabs" role="tablist"></ul>
-  <div class="tab-content" id="datasetTabContent"></div>
+  <h3>Top 5 days by revenue</h3>
+  <table class="top5">
+    <thead><tr><th>Date (YYYY-MM-dd)</th><th>Revenue (USD)</th></tr></thead>
+    <tbody>
+      <tr><td>2024-10-19</td><td>60.00</td></tr><tr><td>2024-10-01</td><td>54.00</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Daily revenue chart</h3>
+  <img src="DATA1_daily_revenue.png" class="chart" alt="Daily revenue chart for DATA1">
 </div>
 
-<script>
-async function loadData() {
-  const resp = await fetch('all_summaries.json');
-  const datasets = await resp.json();
+<div id="DATA2" class="tabcontent ">
+  <div class="cards">
+    <div class="card">
+      <div class="label">Unique users</div>
+      <div class="value">2633</div>
+    </div>
+    <div class="card">
+      <div class="label">Unique author sets</div>
+      <div class="value">293</div>
+    </div>
+    <div class="card">
+      <div class="label">Most popular author(s)</div>
+      <div class="value">Hershel Treutel, Miss Modesto Denesik, Sen. Trula Bosco</div>
+    </div>
+    <div class="card">
+      <div class="label">Best buyer (all alias user_ids)</div>
+      <div class="value">[53146, 53303, 53480, 53494, 53524, 53577, 53614, 53621, 53820, 53914, 53941, 54069, 54182, 54300, 54407, 54412, 54493, 54575, 54625, 54635, 54649, 54877, 55152, 55268, 55281, 55575, 55592, 55632, 55634, 55775, 55811]</div>
+    </div>
+  </div>
 
-  const tabs = document.getElementById('datasetTabs');
-  const content = document.getElementById('datasetTabContent');
+  <h3>Top 5 days by revenue</h3>
+  <table class="top5">
+    <thead><tr><th>Date (YYYY-MM-dd)</th><th>Revenue (USD)</th></tr></thead>
+    <tbody>
+      <tr><td>2025-01-06</td><td>431.94</td></tr><tr><td>2024-10-16</td><td>292.00</td></tr><tr><td>2024-08-28</td><td>255.96</td></tr><tr><td>2024-07-01</td><td>252.50</td></tr><tr><td>2024-12-20</td><td>225.58</td></tr>
+    </tbody>
+  </table>
 
-  datasets.forEach((ds, index) => {
-    const dsId = ds.dataset_name;
+  <h3>Daily revenue chart</h3>
+  <img src="DATA2_daily_revenue.png" class="chart" alt="Daily revenue chart for DATA2">
+</div>
 
-    const li = document.createElement('li');
-    li.className = 'nav-item';
-    li.role = 'presentation';
+<div id="DATA3" class="tabcontent ">
+  <div class="cards">
+    <div class="card">
+      <div class="label">Unique users</div>
+      <div class="value">3232</div>
+    </div>
+    <div class="card">
+      <div class="label">Unique author sets</div>
+      <div class="value">268</div>
+    </div>
+    <div class="card">
+      <div class="label">Most popular author(s)</div>
+      <div class="value">Clyde Jacobson, Mohamed Dach</div>
+    </div>
+    <div class="card">
+      <div class="label">Best buyer (all alias user_ids)</div>
+      <div class="value">[47700, 47721, 47744, 47779, 47948, 48006, 48032, 48087, 48158, 48180, 48321, 48366, 48370, 48395, 48398, 48405, 48455, 48463, 48531, 48553, 48555, 48603, 48608, 48711, 48740, 48746, 48747, 48885, 48893, 49162, 49206, 49299, 49365, 49387, 49440, 49447, 49472, 49702, 49703, 49721, 49810, 49918, 49970, 49988, 50054, 50150, 50157, 50161, 50346, 50356, 50395, 50416, 50620, 50635, 50776, 50792, 50838, 50944, 51005]</div>
+    </div>
+  </div>
 
-    const btn = document.createElement('button');
-    btn.className = 'nav-link' + (index === 0 ? ' active' : '');
-    btn.id = dsId + '-tab';
-    btn.dataset.bsToggle = 'tab';
-    btn.dataset.bsTarget = '#' + dsId + '-pane';
-    btn.type = 'button';
-    btn.role = 'tab';
-    btn.ariaControls = dsId + '-pane';
-    btn.ariaSelected = index === 0 ? 'true' : 'false';
-    btn.textContent = dsId;
+  <h3>Top 5 days by revenue</h3>
+  <table class="top5">
+    <thead><tr><th>Date (YYYY-MM-dd)</th><th>Revenue (USD)</th></tr></thead>
+    <tbody>
+      <tr><td>2024-06-29</td><td>83.00</td></tr><tr><td>2025-01-11</td><td>80.40</td></tr><tr><td>2024-11-08</td><td>69.50</td></tr><tr><td>2024-03-27</td><td>64.78</td></tr><tr><td>2025-01-08</td><td>61.99</td></tr>
+    </tbody>
+  </table>
 
-    li.appendChild(btn);
-    tabs.appendChild(li);
+  <h3>Daily revenue chart</h3>
+  <img src="DATA3_daily_revenue.png" class="chart" alt="Daily revenue chart for DATA3">
+</div>
 
-    const pane = document.createElement('div');
-    pane.className = 'tab-pane fade' + (index === 0 ? ' show active' : '');
-    pane.id = dsId + '-pane';
-    pane.role = 'tabpanel';
-    pane.ariaLabelledby = dsId + '-tab';
 
-    pane.innerHTML = `
-      <div class="mt-3">
-        <div class="row g-3">
-          <div class="col-md-3">
-            <div class="card metric-card">
-              <div class="card-body">
-                <div class="metric-label">Unique users</div>
-                <div class="metric-value">${ds.unique_users}</div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="card metric-card">
-              <div class="card-body">
-                <div class="metric-label">Unique author sets</div>
-                <div class="metric-value">${ds.unique_author_sets}</div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="card metric-card">
-              <div class="card-body">
-                <div class="metric-label">Most popular author(s)</div>
-                <div class="metric-value">
-                  ${ds.most_popular_authors && ds.most_popular_authors.length
-                    ? ds.most_popular_authors.join(', ')
-                    : '<span class="text-muted">n/a</span>'}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <hr class="my-4">
-
-        <div class="row g-4">
-          <div class="col-lg-6">
-            <h5>Top 5 days by revenue</h5>
-            <table class="table table-sm table-striped">
-              <thead>
-                <tr><th>Date (YYYY-MM-dd)</th><th>Revenue (USD)</th></tr>
-              </thead>
-              <tbody>
-                ${ds.top_5_days.map(d =>
-                  `<tr><td>${d.date}</td><td>${d.revenue.toFixed(2)}</td></tr>`
-                ).join('')}
-              </tbody>
-            </table>
-          </div>
-          <div class="col-lg-6">
-            <h5>Best buyer (all alias user_ids)</h5>
-            <pre class="best-buyer mb-2">[${ds.best_buyer_ids.join(', ')}]</pre>
-            <small class="text-muted">All these IDs belong to the same reconciled customer cluster.</small>
-          </div>
-        </div>
-
-        <hr class="my-4">
-
-        <h5>Daily revenue chart</h5>
-        <img class="revenue-chart"
-             src="${ds.dataset_name}_daily_revenue.png"
-             alt="Daily revenue chart for ${ds.dataset_name}">
-      </div>
-    `;
-
-    content.appendChild(pane);
-  });
-}
-
-const bsScript = document.createElement('script');
-bsScript.src = "https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js";
-bsScript.onload = loadData;
-document.body.appendChild(bsScript);
-</script>
+  <script>
+    function openTab(evt, name) {
+      const contents = document.getElementsByClassName("tabcontent");
+      for (let i = 0; i < contents.length; i++) {
+        contents[i].classList.remove("shown");
+      }
+      const links = document.getElementsByClassName("tablink");
+      for (let i = 0; i < links.length; i++) {
+        links[i].classList.remove("active");
+      }
+      document.getElementById(name).classList.add("shown");
+      evt.currentTarget.classList.add("active");
+    }
+  </script>
 </body>
 </html>
