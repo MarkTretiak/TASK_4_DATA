@@ -15,7 +15,7 @@ The project:
   - the best customer by total spending (with all their alias `user_id`s).
 - Generates a simple **dashboard** with three tabs (one per dataset).
 - 
-#Link to see the results:
+# Link to see the results:
 https://marktretiak.github.io/TASK_4_DATA/output/dashboard.html
 
 ---
