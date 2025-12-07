@@ -33,3 +33,6 @@ output/
   ├─ DATA2_daily_revenue.png
   ├─ DATA3_daily_revenue.png
   └─ dashboard.html          # Static HTML dashboard
+
+#Link to see the results:
+https://marktretiak.github.io/TASK_4_DATA/output/dashboard.html
